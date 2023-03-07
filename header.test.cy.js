@@ -9,4 +9,9 @@ describe('Validate Header', () => {
         cy.request('https://pokeapi.co/api/v2/pokemon/ditto',).as('pokemon')
         cy.get('@pokemon').its('body').should('include', {name: 'ditto'})
     })
+
+    it('Successfully validate content', () => {
+        cy.request('https://pokeapi.co/api/v2/pokemon/bulbasaur').as('bulbasaur')
+        cy.get('@bulbasaur').its('body').should('include', {name: 'bulbasaur'})
+    })
 });
